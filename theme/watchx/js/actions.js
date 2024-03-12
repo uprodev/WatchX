@@ -1,10 +1,11 @@
 jQuery(document).ready(function ($) {
 
+    /* after ajax */
 
     $(document).on('ajaxComplete', function(){
         $('.select-block select').niceSelect();
     });
-    
+
     /* remove_from_cart_button */
 
 
