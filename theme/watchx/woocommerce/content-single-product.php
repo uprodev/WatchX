@@ -36,7 +36,7 @@ $brand = get_the_terms(get_the_ID(), 'pa_brand');
 $info = get_field('info_list', 'options');
 $pay = get_field('payments_info', 'options');
 
-$date = strtotime('+3 days');
+$date = strtotime('+7 days');
 
 ?>
 <section class="product">
@@ -84,7 +84,7 @@ $date = strtotime('+3 days');
 
                     <?php woocommerce_template_single_add_to_cart();?>
 
-                    <a href="#" class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></a>
+                    <p class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></p>
                 </div>
                 <?php if($info):?>
                     <ul class="info-list">

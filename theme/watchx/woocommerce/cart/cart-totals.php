@@ -21,7 +21,7 @@ $info = get_field('info_list', 'options');
 $pay = get_field('payments_info', 'options');
 $text = get_field('cart_text', 'options');
 
-$date = strtotime('+3 days');
+$date = strtotime('+7 days');
 
 $ship = WC()->cart->get_cart_shipping_total();
 
@@ -70,7 +70,7 @@ $ship = WC()->cart->get_cart_shipping_total();
     <div class="btn-wrap">
         <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 
-        <a href="#" class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></a>
+        <p class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></p>
     </div>
 
     <?php if($text):?>
