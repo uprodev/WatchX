@@ -69,11 +69,9 @@ $img = get_field('category_image', get_queried_object()->taxonomy . '_'.get_quer
         <div class="content-width content-top">
 
 
-            <?php woocommerce_product_loop_start();
+            <?php if ( wc_get_loop_prop( 'total' ) ): ?>
 
-            if ( wc_get_loop_prop( 'total' ) ): ?>
-
-                <div class="content">
+                <div class="content products-catalog">
 
                     <?php while ( have_posts() ): the_post();
 
@@ -106,9 +104,7 @@ $img = get_field('category_image', get_queried_object()->taxonomy . '_'.get_quer
                     do_action( 'woocommerce_no_products_found' );?>
                 </div>
 
-            <?php endif;
-
-            woocommerce_product_loop_end();?>
+            <?php endif;?>
 
 
         </div>
