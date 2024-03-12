@@ -66,7 +66,7 @@ $brands = get_field('brands');
                     </form>
                 </div>
             </div>
-            <div class="content">
+            <div class="content search-br">
                 <?php foreach ($alpha as $letr):
                     $terms = get_terms( array(
                         'taxonomy' => 'pa_brand',
@@ -76,12 +76,12 @@ $brands = get_field('brands');
 
                     if($terms):?>
 
-                        <div class="item">
+                        <div class="item" data-lettre="<?= $letr;?>">
                             <h6 class="title-item"><?= $letr;?></h6>
                             <ul>
                                 <?php foreach($terms as $term):?>
 
-                                    <li>
+                                    <li data-name="<?= strtolower($term->name);?>">
                                         <a href="<?= get_term_link($term->term_id);?>"><?= $term->name;?></a>
                                     </li>
 
