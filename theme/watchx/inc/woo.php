@@ -41,14 +41,14 @@ function custom_woocommerce_catalog_name_orderby( $sortby ) {
 
 function add_points_widget_to_fragment( $fragments ) {
 
-    ob_start();
+//    ob_start();
 
 
 
     $fragments['.counts_cart'] =  '('.  WC()->cart->get_cart_contents_count() . ')';
 
 
-    $fragments['.counts_cart'] = ob_get_clean();
+//    $fragments['.counts_cart'] = ob_get_clean();
 
     return $fragments;
 }
