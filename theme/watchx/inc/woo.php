@@ -72,7 +72,7 @@ function recently_viewed_product_cookie() {
         $viewed_products[] = get_the_ID();
     }
 
-    if ( sizeof( $viewed_products ) > 10 ) {
+    if ( sizeof( $viewed_products ) > 4 ) {
         array_shift( $viewed_products );
     }
 
@@ -104,8 +104,8 @@ function recently_viewed_products() {
     $viewed_products = array_reverse( array_map( 'absint', $viewed_products ) );
 
     $result = array_diff($viewed_products, $product_id);
-    $first = array_shift($result);
 
-    return $first;
+
+    return $result;
 
 }

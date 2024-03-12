@@ -111,3 +111,37 @@ $recently = recently_viewed_products();
         <?php do_action( 'woocommerce_after_cart' ); ?>
     </div>
 </section>
+
+<?php if(!empty($recently)):?>
+
+    <section class="product-search see-product">
+        <div class="content-width">
+            <h2 class="title-h3"><?= __('Recently viewed', 'watchx');?></h2>
+            <div class="content">
+                <?php foreach($recently as $rec):
+                    $_prod =  wc_get_product( $rec );
+                    $br = get_the_terms($rec, 'pa_brand');
+                ?>
+                    <div class="product-item ">
+                        <figure>
+                            <a href="<?= get_permalink($rec);?>"> <img src="<?= get_the_post_thumbnail_url($rec);?>" alt=""></a>
+                        </figure>
+                        <div class="text">
+                            <?php if($br):?>
+                                <h6 class="title"><?= $br[0]->name;?></h6>
+                            <?php endif;?>
+
+                            <p class="info"><?= get_the_title($rec);?></p>
+                            <p class="cost"><?= $_prod->get_price_html();?></p>
+                            <div class="btn-wrap">
+                                <a href="<?= get_permalink($rec);?>" class="btn-default"><?= __('Enquire now', 'watchx');?></a>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php endforeach;?>
+            </div>
+        </div>
+    </section>
+
+<?php endif;
