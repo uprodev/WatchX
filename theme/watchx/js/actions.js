@@ -1,5 +1,10 @@
 jQuery(document).ready(function ($) {
 
+
+    $(document).on('ajaxComplete', function(){
+        $('.select-block select').niceSelect();
+    });
+    
     /* remove_from_cart_button */
 
 

@@ -68,7 +68,6 @@ $img = get_field('category_image', get_queried_object()->taxonomy . '_'.get_quer
 
         <div class="content-width content-top">
 
-
             <?php if ( wc_get_loop_prop( 'total' ) ): ?>
 
                 <div class="content products-catalog">
