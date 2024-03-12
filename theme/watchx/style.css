@@ -1,0 +1,14 @@
+/*
+Theme Name: WatchX
+Description: Theme WP for WatchX
+*/
+
+.product form.cart + a {
+    margin-top: 20px;
+}
+.product form.cart .quantity{
+    display: none;
+}
+.woocommerce .woocommerce-ordering.select-block {
+    margin: 0;
+}
