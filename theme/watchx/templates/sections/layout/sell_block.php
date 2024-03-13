@@ -109,5 +109,3 @@ $button = get_sub_field('button');
         </div>
     </div>
 </section>
-
-<?php get_template_part('parts/modal-form');
