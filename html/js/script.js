@@ -198,4 +198,126 @@ jQuery(document).ready(function ($) {
   $(".sort-line-wrap").sticky({
     topSpacing:0
   });
+
+  /**/
+
+  $(document).on('click', '.top-line .search-wrap a', function (e){
+    e.preventDefault();
+    $(this).toggleClass('is-open');
+    if($(this).hasClass('is-open')){
+      $('.search-block').slideDown();
+    }else{
+      $('.search-block').slideUp();
+    }
+  });
+
+
+
+
+  $(document).on('click', '.fancybox-filter', function (e){
+    e.preventDefault();
+
+    $.fancybox.open( $('#filter-popup'), {
+      touch:false,
+      autoFocus:false,
+    });
+    setTimeout(function() {
+      $('html').addClass('is-menu');
+    }, 100);
+
+  });
+
+  var swiperSlider = new Swiper(".step-slider", {
+    autoHeight: true,
+    spaceBetween: 20,
+    pagination: {
+      el: ".step-pagination",
+      //clickable: true,
+    },
+    speed:700,
+    allowTouchMove:false,
+    touchRatio: 1,
+    noSwiping: false,
+    preventClicks :true,
+    a11y: false,
+  });
+
+  //next slide
+  $(document).on('click', '.btn-next', function (e){
+    e.preventDefault();
+    swiperSlider.slideNext();
+  });
+
+  $('input:file').change(function(){
+    $this = $(this);
+    $name = $this.val().replace('C:\\fakepath\\', '');
+    $('.file-info').text($name).slideDown();
+    $('.text-file').slideUp();
+  });
+
+
+  $(".fancybox").fancybox({
+    touch:false,
+    autoFocus:false,
+
+  });
+
+  $.validator.addMethod('emailtld', function(val, elem){
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    if(!filter.test(val)) {
+      return false;
+    } else {
+      return true;
+    }
+  }, 'Please enter your email');
+
+
+
+
+  $('.form-popup').validate({
+    rules: {
+      name:{
+        minlength: 3,
+        required: true,
+      },
+      lastName:{
+        minlength: 3,
+        required: true,
+      },
+      tel: {
+        minlength: 10,
+        required: true,
+      },
+      emailPopup: {
+        minlength: 7,
+        required: true,
+        emailtld: true,
+      },
+    },
+    messages: {
+      name:{
+        minlength: "Enter at least 3 characters"
+      },
+      lastName:{
+        minlength: "Enter at least 3 characters"
+      },
+      emailPopup:{
+        minlength: "Please enter your email",
+      },
+      tel:{
+        minlength: "Please enter your phone number"
+      },
+    }
+  });
+
+  $('.form-popup .input-wrap-val').on('keyup blur', function () {
+    if ($('.form-popup').valid()) {
+      $('.btn-wrap-dis').addClass('is-go-next')
+    } else {
+      $('.btn-wrap-dis').removeClass('is-go-next')
+    }
+  });
+
+
 });
