@@ -348,7 +348,19 @@
     margin-bottom: 45px; }
 
   .exchange-sell .main {
-    margin-bottom: 0; } }
+    margin-bottom: 0; }
+
+  /**/
+  header .search-block input {
+    height: 40px;
+    border-width: 1px;
+    line-height: 38px;
+    padding: 0 45px 0 15px;
+    font-size: 16px; }
+
+  header .search-block button {
+    width: 40px;
+    height: 40px; } }
 @media (max-width: 767px) {
   .content-width {
     width: 540px; }
@@ -1086,6 +1098,53 @@
 
   .sell-banner .list-info li p {
     font-size: 10px;
-    line-height: normal; } }
+    line-height: normal; }
+
+  /**/
+  .form-popup .input-wrap {
+    width: 100%; }
+
+  .form-popup .input-wrap input {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px; }
+
+  .sell-popup .top {
+    padding: 20px 20px; }
+
+  .form-popup .d-flex {
+    padding: 0 20px 50px; }
+
+  .form-popup .btn-wrap {
+    padding: 20px 20px 0; }
+
+  .sell-popup .wrap {
+    padding: 20px 0; }
+
+  .form-popup .nice-select {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px 0 10px; }
+
+  .form-popup .input-wrap-check .text {
+    width: 100%;
+    margin-bottom: 10px; }
+
+  .form-popup .input-wrap-check .wrap-check {
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+
+  .sell-popup .swiper-pagination {
+    bottom: 75px; }
+
+  .form-popup .input-wrap-check {
+    margin-top: 10px; }
+
+  .form-popup .btn-wrap-dis:after {
+    top: 20px;
+    left: 20px;
+    right: 20px; } }
 
 /*# sourceMappingURL=responsive.css.map */
