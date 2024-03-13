@@ -52,7 +52,7 @@ jQuery(document).ready(function ($) {
             $('.search-br .item').hide();
             $('.search-br .item[data-lettre="'+val+'"]').show();
             $('.search-br .item li').show();
-            
+
         }else if(val.length >= 2){
 
             $('.search-br .item li').hide();
