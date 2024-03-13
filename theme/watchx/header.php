@@ -106,7 +106,7 @@
                         </a>
                     </div>
                     <div class="user-wrap">
-                        <a href="#">
+                        <a href="<?= get_permalink(get_option( 'woocommerce_myaccount_page_id' ));?>">
                             <img src="<?= get_template_directory_uri();?>/img/icon-3-2.svg" alt="">
                         </a>
                     </div>
