@@ -118,6 +118,11 @@
                 </div>
             </div>
         </div>
+        <div class="search-block">
+            <div class="content-width">
+                <?= do_shortcode('[fibosearch]'); ?>
+            </div>
+        </div>
     </header>
 
     <?php get_template_part('parts/menu');?>

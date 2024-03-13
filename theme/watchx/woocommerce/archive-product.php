@@ -109,4 +109,19 @@ $img = get_field('category_image', get_queried_object()->taxonomy . '_'.get_quer
         </div>
     </section>
 
+
+    <div class="filter-popup" id="filter-popup" style="display: none">
+        <div class="main">
+            <div class="top">
+                <h6><?= __('filters', 'watchx');?></h6>
+                <div class="close-menu">
+                    <a href="#"><img src="<?= get_template_directory_uri();?>/img/close.svg" alt=""></a>
+                </div>
+            </div>
+            <div class="wrap">
+                <?= do_shortcode('[br_filters_group group_id=324]');?>
+            </div>
+        </div>
+    </div>
+
 <?php get_footer();
