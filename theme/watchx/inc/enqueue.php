@@ -19,6 +19,7 @@ function add_styles() {
 function add_scripts() {
 
     wp_enqueue_script( 'wc-cart-fragments' );
+    wp_enqueue_script( 'validatejs', get_template_directory_uri() . '/js/jquery.validate.min.js', array('jquery'), false, true);
     wp_enqueue_script( 'fancyboxjs', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array('jquery'), false, true);
     wp_enqueue_script( 'nice-selectjs', get_template_directory_uri() . '/js/jquery.nice-select.min.js', array('jquery'), false, true);
     wp_enqueue_script( 'swiperjs', get_template_directory_uri() . '/js/swiper.js', array('jquery'), false, true);
