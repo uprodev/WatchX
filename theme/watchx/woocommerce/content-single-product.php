@@ -84,7 +84,7 @@ $date = strtotime('+7 days');
 
                     <?php woocommerce_template_single_add_to_cart();?>
 
-                    <p class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></p>
+                    <a href="#" class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></a>
                 </div>
                 <?php if($info):?>
                     <ul class="info-list">

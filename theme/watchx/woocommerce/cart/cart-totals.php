@@ -70,7 +70,7 @@ $ship = WC()->cart->get_cart_shipping_total();
     <div class="btn-wrap">
         <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 
-        <p class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></p>
+        <a href="#" class="btn-default btn-grey"><img src="<?= get_template_directory_uri();?>/img/icon-12.svg" alt=""><?= __('Order now to receive', 'watchx'). ' '. date('D, M j', $date);?></a>
     </div>
 
     <?php if($text):?>
