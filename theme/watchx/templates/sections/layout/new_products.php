@@ -3,6 +3,7 @@
 $title = get_sub_field('title');
 $text = get_sub_field('text');
 $link = get_sub_field('link');
+$brands = get_sub_field('brands');
 
 ?>
 
@@ -20,10 +21,12 @@ $link = get_sub_field('link');
             </div>
 
             <ul class="tabs-menu table-menu-styles">
-                <li>All</li>
-                <li>Rolex</li>
-                <li>Patek Philippe</li>
-                <li>Audemars piguet</li>
+                <li><?= __('All', 'watchx');?></li>
+                <?php if($brands):
+                    foreach ($brands as $brand):?>
+                        <li><?= get_term($brand)->name;?></li>
+                    <?php endforeach;
+                endif;?>
             </ul>
         </div>
 
@@ -32,253 +35,51 @@ $link = get_sub_field('link');
         <div class="content">
             <div class="tab-content">
                 <div class="tab-item product-container">
-                    <div class="swiper product-slider">
-                        <div class="swiper-wrapper">
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-1.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">ROLEX</h6>
-                                    <p class="info">GMT-Master II Pepsi</p>
-                                    <p class="cost">POA</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-2.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">Rn029 Le Mans</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-3.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">AUDEMARS PIGUET</h6>
-                                    <p class="info">Royal Oak 26331ST</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-4.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">67-01 Rose Gold</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
+                    <?php $prods = new WP_Query([
+                        'post_type' => 'product',
+                        'posts_per_page' => 4,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                    ]);?>
+                    <?php if($prods->have_posts()): ?>
+                        <div class="swiper product-slider">
+                            <div class="swiper-wrapper">
+                                <?php while($prods->have_posts()): $prods->the_post();
+                                    get_template_part('parts/product');
+                                endwhile; wp_reset_postdata();?>
                             </div>
                         </div>
-                    </div>
+                    <?php endif;?>
 
                 </div>
-                <div class="tab-item product-container">
-                    <div class="swiper product-slider">
-                        <div class="swiper-wrapper">
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-2.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">Rn029 Le Mans</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
+                <?php if($brands):
+                    foreach ($brands as $brand):
+                        $prods = new WP_Query([
+                            'post_type' => 'product',
+                            'posts_per_page' => 4,
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                            'tax_query' => [
+                                [
+                                    'taxonomy' => 'pa_brand',
+                                    'field' => 'id',
+                                    'terms' => $brand,
+                                ]
+                            ]
+                        ]);?>
+                        <div class="tab-item product-container">
+                            <?php if($prods->have_posts()): ?>
+                                <div class="swiper product-slider">
+                                    <div class="swiper-wrapper">
+                                        <?php while($prods->have_posts()): $prods->the_post();
+                                            get_template_part('parts/product');
+                                        endwhile; wp_reset_postdata();?>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-3.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">AUDEMARS PIGUET</h6>
-                                    <p class="info">Royal Oak 26331ST</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-4.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">67-01 Rose Gold</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-1.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">ROLEX</h6>
-                                    <p class="info">GMT-Master II Pepsi</p>
-                                    <p class="cost">POA</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endif;?>
                         </div>
-                    </div>
-
-                </div>
-                <div class="tab-item product-container">
-                    <div class="swiper product-slider">
-                        <div class="swiper-wrapper">
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-3.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">AUDEMARS PIGUET</h6>
-                                    <p class="info">Royal Oak 26331ST</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-4.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">67-01 Rose Gold</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-1.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">ROLEX</h6>
-                                    <p class="info">GMT-Master II Pepsi</p>
-                                    <p class="cost">POA</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-2.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">Rn029 Le Mans</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab-item product-container">
-                    <div class="swiper product-slider">
-                        <div class="swiper-wrapper">
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-4.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">67-01 Rose Gold</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-1.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">ROLEX</h6>
-                                    <p class="info">GMT-Master II Pepsi</p>
-                                    <p class="cost">POA</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-2.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">RICHARD MILLE</h6>
-                                    <p class="info">Rn029 Le Mans</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="#"><img src="img/img-2-3.jpg" alt=""></a>
-                                </figure>
-                                <div class="text">
-                                    <h6 class="title">AUDEMARS PIGUET</h6>
-                                    <p class="info">Royal Oak 26331ST</p>
-                                    <p class="cost">£55,240.00
-                                        <sup>Incl. VAT</sup></p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-default">Enquire now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                    <?php endforeach;
+                endif;?>
             </div>
             <?php if( $link ):
                 $link_url = $link['url'];

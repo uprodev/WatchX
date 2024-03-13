@@ -28,7 +28,7 @@ $brand = get_the_terms(get_the_ID(), 'pa_brand');
 
 
 ?>
-<div class="product-item ">
+<div class="product-item">
     <figure>
         <?php
 
