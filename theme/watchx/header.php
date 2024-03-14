@@ -13,11 +13,9 @@
         <div class="top-info-line">
             <div class="content-width">
                 <div class="lang-wrap">
-                    <a href="#"><img src="<?= get_template_directory_uri();?>/img/flag-1.svg" alt="">£ (GBP)</a>
-                    <ul class="lang-list">
-                        <li><a href="#"><img src="<?= get_template_directory_uri();?>/img/flag-1.svg" alt="">£ (GBP)</a></li>
-                        <li><a href="#"><img src="<?= get_template_directory_uri();?>/img/flag-1.svg" alt="">£ (GBP)</a></li>
-                    </ul>
+                    
+                    <?= do_shortcode('[yaycurrency-switcher]');?>
+
                 </div>
                 <div class="top-info">
 
