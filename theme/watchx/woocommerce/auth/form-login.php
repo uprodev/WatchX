@@ -18,7 +18,8 @@
 defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_auth_page_header' ); ?>
-
+<div class="login-block">
+    <div class="content-width">
 <h1>
 	<?php
 	/* translators: %s: app name */
@@ -52,3 +53,6 @@ do_action( 'woocommerce_auth_page_header' ); ?>
 </form>
 
 <?php do_action( 'woocommerce_auth_page_footer' ); ?>
+
+    </div>
+</div>

@@ -13,7 +13,7 @@
         <div class="top-info-line">
             <div class="content-width">
                 <div class="lang-wrap">
-                    
+
                     <?= do_shortcode('[yaycurrency-switcher]');?>
 
                 </div>

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<li><span>•</span>
+<li class="woocommerce-result-counts"><span>•</span>
 
 	<?php
 	// phpcs:disable WordPress.Security
