@@ -34,7 +34,6 @@ if ( $related_products ) : ?>
                     <div class="tab-item product-container">
                         <div class="swiper product-slider">
                             <div class="swiper-wrapper">
-                                <?php woocommerce_product_loop_start(); ?>
 
                                 <?php foreach ( $related_products as $related_product ) : ?>
 
@@ -43,12 +42,11 @@ if ( $related_products ) : ?>
 
                                     setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-                                    wc_get_template_part( 'content', 'product' );
+                                    wc_get_template_part( 'content-related', 'product' );
                                     ?>
 
                                 <?php endforeach; ?>
 
-                                <?php woocommerce_product_loop_end(); ?>
                             </div>
                         </div>
                     </div>
