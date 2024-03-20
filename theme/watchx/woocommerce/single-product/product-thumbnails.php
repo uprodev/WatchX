@@ -31,16 +31,14 @@ $post_thumbnail_id = $product->get_image_id();
 <div thumbsSlider="" class="swiper mini-slider">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <a href="<?= wp_get_attachment_image_src( $post_thumbnail_id, 'medium' )[0] ?>" data-fancybox="gallery">
-                    <img src="<?= wp_get_attachment_image_src( $post_thumbnail_id, 'medium' )[0] ?>" alt=""/>
-                </a>
+                <img src="<?= wp_get_attachment_image_src( $post_thumbnail_id, 'medium' )[0] ?>" alt=""/>
             </div>
 
             <?php if ( $attachment_ids && $product->get_image_id() ) {
                 foreach ( $attachment_ids as $attachment_id ) {?>
 
                     <div class="swiper-slide">
-                        <a href="<?= wp_get_attachment_image_src( $attachment_id, 'medium' )[0];?>" data-fancybox="gallery"><img src="<?= wp_get_attachment_image_src( $attachment_id, 'medium' )[0];?>" alt=""></a>
+                        <img src="<?= wp_get_attachment_image_src( $attachment_id, 'medium' )[0];?>" alt="">
                     </div>
                 <?php }
             }
