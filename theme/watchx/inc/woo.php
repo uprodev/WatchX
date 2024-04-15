@@ -30,8 +30,8 @@ function custom_woocommerce_catalog_name_orderby( $sortby ) {
     unset( $sortby[ 'price-desc' ] );
 
     $sortby[ 'popularity' ] = 'Best selling';
-    $sortby['name_asc'] = 'A-Z';
-    $sortby['name_desc'] = 'Z-A';
+    $sortby['name_desc'] = 'A-Z';
+    $sortby['name_asc'] = 'Z-A';
 
     return $sortby;
 }

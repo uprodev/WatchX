@@ -31,7 +31,7 @@ global $product;
             esc_url( $product->add_to_cart_url() ),
             esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
             isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
-            __('Enquire now', 'watchx')
+            __('view watch', 'watchx')
         ),
         $product,
         $args

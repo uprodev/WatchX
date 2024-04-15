@@ -2,6 +2,7 @@
 
 $title = get_sub_field('title');
 $link = get_sub_field('link');
+$popup_link = get_sub_field('popup_link');
 $text = get_sub_field('text');
 $image = get_sub_field('image');
 $title_faqs = get_sub_field('title_faqs');
@@ -71,7 +72,7 @@ $text_faqs = get_sub_field('text_faqs');
                     $link_target = $link['target'] ? $link['target'] : '_self';
                     ?>
                     <div class="btn-wrap">
-                        <a class="btn-default" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><?= esc_html($link_title); ?></a>
+                        <a class="btn-default<?= $popup_link?' fancybox':'';?>" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><?= esc_html($link_title); ?></a>
                     </div>
                 <?php endif; ?>
             </div>

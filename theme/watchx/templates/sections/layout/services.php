@@ -2,7 +2,7 @@
 
 $title = get_sub_field('title');
 $text = get_sub_field('text');
-$link = get_sub_field('link');
+$linka = get_sub_field('link');
 $services = get_sub_field('services');
 
 ?>
@@ -54,13 +54,13 @@ $services = get_sub_field('services');
             </div>
         <?php endif;?>
 
-        <?php if( $link ):
-            $link_url = $link['url'];
-            $link_title = $link['title'];
-            $link_target = $link['target'] ? $link['target'] : '_self';
+        <?php if( $linka ):
+            $linka_url = $linka['url'];
+            $linka_title = $linka['title'];
+            $linka_target = $linka['target'] ? $linka['target'] : '_self';
             ?>
             <div class="btn-wrap">
-                <a class="btn-default btn-border btn-big" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><img src="<?= get_template_directory_uri();?>/img/icon-6.svg" alt="<?= esc_html($link_title); ?>"><?= esc_html($link_title); ?></a>
+                <a class="btn-default btn-border btn-big" href="<?= esc_url($linka_url); ?>" target="<?= esc_attr($linka_target); ?>"><img src="<?= get_template_directory_uri();?>/img/icon-6.svg" alt="<?= esc_html($linka_title); ?>"><?= esc_html($linka_title); ?></a>
             </div>
         <?php endif; ?>
 

@@ -2,6 +2,7 @@
 
 $title = get_sub_field('title');
 $link = get_sub_field('link');
+$popup_link = get_sub_field('popup_link');
 $text = get_sub_field('text');
 $image = get_sub_field('image');
 $title_faqs = get_sub_field('title_faqs');
@@ -9,6 +10,7 @@ $faqs = get_sub_field('faqs');
 $text_faqs = get_sub_field('text_faqs');
 $list = get_sub_field('list');
 $button = get_sub_field('button');
+$popup_btn = get_sub_field('popup_button');
 
 ?>
 
@@ -28,7 +30,7 @@ $button = get_sub_field('button');
                     $link_target = $link['target'] ? $link['target'] : '_self';
                     ?>
                     <div class="btn-wrap">
-                        <a class="btn-default" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><?= esc_html($link_title); ?></a>
+                        <a class="btn-default<?= $popup_link?' fancybox':'';?>" href="<?= esc_url($link_url); ?>" target="<?= esc_attr($link_target); ?>"><?= esc_html($link_title); ?></a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -67,7 +69,7 @@ $button = get_sub_field('button');
                     $button_target = $button['target'] ? $button['target'] : '_self';
                     ?>
                     <div class="btn-wrap">
-                        <a class="btn-default" href="<?= esc_url($button_url); ?>" target="<?= esc_attr($button_target); ?>"><?= esc_html($button_title); ?></a>
+                        <a class="btn-default<?= $popup_btn?' fancybox':'';?>" href="<?= esc_url($button_url); ?>" target="<?= esc_attr($button_target); ?>"><?= esc_html($button_title); ?></a>
                     </div>
                 <?php endif; ?>
 
